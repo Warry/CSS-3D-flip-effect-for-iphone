@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Flip effect in CSS for iPhone</title>
+		<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<style type="text/css">
+			body {
+				font: 13px Arial, sans-serif;
+				margin: 0;
+			}
+			#flip {
+				position: absolute;
+				min-height: 460px;
+				width: 320px;
+				-webkit-perspective: 1000;
+				background: #000;
+			}
+			#front, #back {
+				background: #fff;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				min-height: 100%;
+				-webkit-backface-visibility: hidden;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transition: all .5s ease-in-out;
+			}
+			#front {
+				-webkit-transform: rotateY(0deg);
+			}
+			#back {
+				-webkit-transform: rotateY(180deg);
+			}
+			div:target#flip #front {
+				-webkit-transform: rotateY(-180deg);
+			}
+			div:target#flip #back {
+				-webkit-transform: rotateY(0deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="flip">
+			<div id="front">
+				FRONT
+				<p><a href="#flip">Flip to back !</a></p>
+			</div>
+			<div id="back">
+				BACK
+				<p><a href="#">Flip to front !</a></p>
+			</div>
+		</div>
+	</body>
+</html>
